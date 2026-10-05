@@ -7,6 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>百合大好き協会</title>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700&family=Yomogi&display=swap" rel="stylesheet">
+  .discord{text-align:center}
+.discord .btn{background:linear-gradient(135deg,#8ea1ff,#b49aff);box-shadow:0 8px 20px rgba(142,161,255,.5);text-decoration:none}
+.discord small{display:block;margin-top:14px;font-size:13px;opacity:.8}
 <style>
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
 --bg1:#ffe3f0;--bg2:#e8dcff;--bg3:#d9f5ea;--card:rgba(255,255,255,.82);--text:#6b4a66;--pink:#ff8fbf;--purple:#a98be8;--mint:#7fd6b8;--shadow:0 10px 30px rgba(214,97,154,.2)}
@@ -97,6 +100,12 @@ footer{text-align:center;padding:30px 16px 50px;font-size:14px}
 <div class="card" style="text-align:center"><p>入会資格は「百合が好き」という気持ちだけ。<br>会費はありません 🤍</p>
 <button class="btn" onclick="toast('入会ありがとう！🎀 ゆりっこ名簿にそっと書きました')">🎀 ゆりっこになる</button></div></section>
 </main>
+<section id="discord"><h2>Discordでおしゃべり</h2>
+<div class="card discord">
+<p>協会のみんなは、Discordサーバーでおしゃべりしています💬<br>おすすめ作品の話も、今日の「尊い」も、気軽に聞かせてくださいね。</p>
+<a class="btn" href="https://discord.gg/DythYmXWHp" target="_blank" rel="noopener">🫧 Discordにあそびにいく</a>
+<small>リンク：discord.gg/DythYmXWHp</small>
+</div></section>
 <footer>© 百合大好き協会 ｜ みんなの「好き」で育つお花畑 🌸</footer>
 <div class="toast" id="toast"></div>
 <script>
