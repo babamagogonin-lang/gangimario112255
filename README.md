@@ -1,36 +1,10 @@
 gangimario112255
-百合大好き
-<!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>百合大好き協会</title>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700&family=Yomogi&display=swap" rel="stylesheet">
-  .discord{text-align:center}
-.discord .btn{background:linear-gradient(135deg,#8ea1ff,#b49aff);box-shadow:0 8px 20px rgba(142,161,255,.5);text-decoration:none}
-.discord small{display:block;margin-top:14px;font-size:13px;opacity:.8}
-  .tool{text-align:center}
-.tool [hidden]{display:none!important}
-.tool input,.tool select{font-family:inherit;font-size:16px;color:var(--text);background:var(--card);border:2px solid var(--pink);border-radius:99px;padding:10px 18px;margin:6px;outline:none;max-width:100%}
-.tool input:focus,.tool select:focus{border-color:var(--purple)}
-.tool a.btn{text-decoration:none}
-.tool canvas{display:block;max-width:100%;height:auto;margin:18px auto 0;border-radius:24px;box-shadow:var(--shadow)}
-.gacha-box{min-height:110px;display:flex;align-items:center;justify-content:center;margin-top:18px;padding:18px;border-radius:28px;background:linear-gradient(135deg,rgba(255,179,211,.35),rgba(211,194,255,.35));font-size:18px}
-.gacha-box.pop{animation:pop .6s}
-@keyframes pop{0%{transform:scale(.6) rotate(-4deg);opacity:0}70%{transform:scale(1.06)}100%{transform:scale(1);opacity:1}}
-  .rec{text-align:center}
-.rec-box{min-height:120px;display:flex;flex-direction:column;align-items:center;justify-content:center;margin-top:18px;padding:18px;border-radius:28px;background:linear-gradient(135deg,rgba(255,179,211,.35),rgba(211,194,255,.35));font-size:17px}
-.rec-box b{font-size:21px;color:var(--pink)}
-.rec-box.pop{animation:recpop .6s}
-@keyframes recpop{0%{transform:scale(.6) rotate(-4deg);opacity:0}70%{transform:scale(1.06)}100%{transform:scale(1);opacity:1}}
-.sparkle{position:fixed;pointer-events:none;z-index:9;font-size:16px;animation:spk .9s ease-out forwards}
-@keyframes spk{from{opacity:1;transform:translate(0,0) scale(1)}to{opacity:0;transform:translate(var(--dx),var(--dy)) scale(.3) rotate(120deg)}}
-.fab{position:fixed;right:16px;width:46px;height:46px;border:0;border-radius:50%;background:var(--card);color:var(--text);font-size:20px;box-shadow:var(--shadow);cursor:pointer;z-index:6;animation:fabfloat 4s ease-in-out infinite}
-@keyframes fabfloat{50%{transform:translateY(-5px)}}
-#themeBtn{bottom:calc(76px + env(safe-area-inset-bottom,0px))}
-#topBtn{bottom:calc(20px + env(safe-area-inset-bottom,0px));opacity:0;pointer-events:none;transition:opacity .4s}
-#topBtn.show{opacity:1;pointer-events:auto}
 <style>
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
 --bg1:#ffe3f0;--bg2:#e8dcff;--bg3:#d9f5ea;--card:rgba(255,255,255,.82);--text:#6b4a66;--pink:#ff8fbf;--purple:#a98be8;--mint:#7fd6b8;--shadow:0 10px 30px rgba(214,97,154,.2)}
