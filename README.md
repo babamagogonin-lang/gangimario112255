@@ -50,7 +50,7 @@ footer{text-align:center;padding:30px 16px 50px;font-size:14px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
   <link rel="icon" type="image/png" href="https://babamagogonin-lang.github.io/gangimario112255/icon.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="apple-touch-icon" href="https://babamagogonin-lang.github.io/gangimario112255/apple-touch-icon.png?v=4">
 <meta name="theme-color" content="#ffb7d5">
 <meta name="description" content="女の子同士のやわらかくて尊い関係を愛でる、ふわふわの集まり。百合大好き協会へようこそ🌸">
 <meta property="og:type" content="website">
