@@ -60,7 +60,7 @@ footer{text-align:center;padding:30px 16px 50px;font-size:14px}
 <meta property="og:url" content="https://babamagogonin-lang.github.io/gangimario112255/">
 <meta property="og:image" content="https://babamagogonin-lang.github.io/gangimario112255/ogp.png">
 <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" type="image/png" href="https://babamagogonin-lang.github.io/gangimario112255/icon.png?v=3">
+<link rel="icon" type="image/png" href="https://babamagogonin-lang.github.io/gangimario112255/icon.png?v=4">
 </head>
 <body>
 <div class="petals" id="petals"></div>
