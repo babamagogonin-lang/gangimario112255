@@ -10,6 +10,15 @@ gangimario112255
   .discord{text-align:center}
 .discord .btn{background:linear-gradient(135deg,#8ea1ff,#b49aff);box-shadow:0 8px 20px rgba(142,161,255,.5);text-decoration:none}
 .discord small{display:block;margin-top:14px;font-size:13px;opacity:.8}
+  .tool{text-align:center}
+.tool [hidden]{display:none!important}
+.tool input,.tool select{font-family:inherit;font-size:16px;color:var(--text);background:var(--card);border:2px solid var(--pink);border-radius:99px;padding:10px 18px;margin:6px;outline:none;max-width:100%}
+.tool input:focus,.tool select:focus{border-color:var(--purple)}
+.tool a.btn{text-decoration:none}
+.tool canvas{display:block;max-width:100%;height:auto;margin:18px auto 0;border-radius:24px;box-shadow:var(--shadow)}
+.gacha-box{min-height:110px;display:flex;align-items:center;justify-content:center;margin-top:18px;padding:18px;border-radius:28px;background:linear-gradient(135deg,rgba(255,179,211,.35),rgba(211,194,255,.35));font-size:18px}
+.gacha-box.pop{animation:pop .6s}
+@keyframes pop{0%{transform:scale(.6) rotate(-4deg);opacity:0}70%{transform:scale(1.06)}100%{transform:scale(1);opacity:1}}
 <style>
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
 --bg1:#ffe3f0;--bg2:#e8dcff;--bg3:#d9f5ea;--card:rgba(255,255,255,.82);--text:#6b4a66;--pink:#ff8fbf;--purple:#a98be8;--mint:#7fd6b8;--shadow:0 10px 30px rgba(214,97,154,.2)}
@@ -58,7 +67,7 @@ footer{text-align:center;padding:30px 16px 50px;font-size:14px}
 <body>
 <div class="petals" id="petals"></div>
 <header>
-<nav><a href="#about">協会とは</a><a href="#act">活動</a><a href="#rank">会員ランク</a><a href="#rule">やくそく</a><a href="#join">入会</a></nav>
+<nav><a href="#about">協会とは</a><a href="#act">活動</a><a href="#rank">会員ランク</a><a href="#rule">やくそく</a><a href="#join">入会</a><a href="#card">会員証</a><a href="#gacha">ガチャ</a></nav>
 <div class="hero">
 <div class="rings"><i></i><i></i></div>
 <h1>百合大好き協会</h1>
@@ -66,6 +75,22 @@ footer{text-align:center;padding:30px 16px 50px;font-size:14px}
 <button class="btn" onclick="toast('ようこそ、つぼみさん！🌷 いっしょにお茶しましょうね')">🌸 なかまになる</button>
 </div>
 </header>
+  <section id="card"><h2>会員証をつくろう</h2>
+<div class="card tool">
+<p>ニックネームとランクを選ぶと、あなただけの会員証ができるよ🎀</p>
+<input id="cName" type="text" maxlength="12" placeholder="ニックネーム">
+<select id="cRank"><option>つぼみ</option><option>ひらき</option><option>まんかい</option><option>ゆりぞの</option></select>
+<br><button class="btn" id="cMake">✨ つくる</button>
+<canvas id="cCanvas" width="640" height="400" hidden></canvas>
+<a class="btn" id="cSave" download="yuri-kai-card.png" hidden>💾 画像を保存</a>
+</div></section>
+
+<section id="gacha"><h2>今日の尊い一言ガチャ</h2>
+<div class="card tool">
+<p>ボタンをぽんっと押してね。今日のあなたに、ふわっとした一言をお届け🫧</p>
+<button class="btn" id="gBtn">🎰 ガチャをまわす</button>
+<div class="gacha-box" id="gBox">ここに今日の一言がでるよ✨</div>
+</div></section>
 <main>
 <section id="about"><h2>協会とは</h2>
 <div class="card"><p>女の子同士の、やわらかくて尊い関係をみんなで愛でる、ふわふわの集まりです。恋でも友情でも、名前のつかない気持ちでも、ここでは全部まるごと「尊い」と呼びます。むずかしいルールはありません。紅茶でも片手に、ゆっくりしていってくださいね ☁️</p></div></section>
@@ -114,6 +139,35 @@ for(var i=0;i<18;i++){var s=document.createElement('span');s.className='petal';s
 s.style.left=Math.random()*100+'%';s.style.fontSize=(14+Math.random()*16)+'px';
 s.style.animationDuration=(9+Math.random()*10)+'s';s.style.animationDelay=(-Math.random()*15)+'s';p.appendChild(s)}
 function toast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('on');setTimeout(function(){t.classList.remove('on')},3200)}
+  var ranks={'つぼみ':['🌱','#d9f5ea','#ffe3f0'],'ひらき':['🌷','#ffe3f0','#e8dcff'],'まんかい':['🌸','#ffd0e6','#d9c9ff'],'ゆりぞの':['👑','#ffe9a8','#ffc2de']};
+document.getElementById('cMake').onclick=function(){
+var n=(document.getElementById('cName').value||'').trim()||'ゆりっこ',r=document.getElementById('cRank').value,v=ranks[r];
+var c=document.getElementById('cCanvas'),x=c.getContext('2d'),W=640,H=400,f='"Zen Maru Gothic","Yu Gothic",sans-serif';
+var g=x.createLinearGradient(0,0,W,H);g.addColorStop(0,v[1]);g.addColorStop(1,v[2]);
+x.fillStyle=g;x.fillRect(0,0,W,H);
+x.globalAlpha=.55;x.fillStyle='#ff8fbf';x.beginPath();x.arc(500,110,70,0,7);x.fill();
+x.fillStyle='#a98be8';x.beginPath();x.arc(560,110,70,0,7);x.fill();x.globalAlpha=1;
+x.strokeStyle='#fff';x.lineWidth=10;x.strokeRect(14,14,W-28,H-28);
+x.fillStyle='#6b4a66';x.textAlign='left';
+x.font='700 30px '+f;x.fillText('百合大好き協会 会員証',40,70);
+x.font='700 28px '+f;x.fillText(v[0]+' '+r+'会員',40,145);
+var s=56;x.font='700 '+s+'px '+f;
+while(x.measureText(n).width>540&&s>20){s-=2;x.font='700 '+s+'px '+f}
+x.fillText(n,40,250);
+x.font='20px '+f;
+x.fillText('No.'+('000'+Math.floor(Math.random()*10000)).slice(-4)+'　入会日 '+new Date().toLocaleDateString('ja-JP'),40,320);
+x.fillText('🌸 好きって言っていいんだよ、ここでは',40,355);
+c.hidden=false;var a=document.getElementById('cSave');a.href=c.toDataURL('image/png');a.hidden=false;
+toast('会員証ができたよ！🎀');
+};
+var gN=['今日はふたりで、おそろいのものをひとつ見つけられそう🍓','ふと目が合ったとき、時間がゆっくり流れるかも☁️','おすすめの百合作品を、だれかに1つ教えてみよう📚','帰り道で同じ歩幅になる、そんな尊さに出会えるよ🌆','「好き」を隠さなくていい日。思いっきり語ろう🌸','となりの席の気配だけで、胸がきゅっとするかも🫧','紅茶を2つ淹れて、ひとくちずつ分け合う日🍵','今日の尊いは、きっと何気ない会話の中にあるよ💬','ちいさな「ありがとう」が、だれかの花を咲かせます🌷','しんどい日は休んで大丈夫。尊いは逃げないよ🤍','名前を呼ぶ声が、いつもより少しやさしい日🎀','雨の日に1本の傘を分け合う、そんな物語に出会えそう☔','好きな作品をもう一度ひらくと、新しい発見があるよ📖','今日のあなたは、それだけで誰かの推しです💐'];
+var gR=['ふたりの影が、夕焼けの中でそっと重なる…そんな奇跡の予感🌇','星空の下で交わす内緒話。今日は世界でいちばん尊い夜🌙','大好きな作品の新しい展開に、思わず叫んじゃうかも！🎆','ゆりぞの名誉会員レベルの尊さが、今日あなたに降ってきます👑'],gLast='';
+document.getElementById('gBtn').onclick=function(){
+var b=document.getElementById('gBox'),rare=Math.random()<.12,a=rare?gR:gN,t;
+do{t=a[Math.floor(Math.random()*a.length)]}while(t===gLast);
+gLast=t;b.textContent=(rare?'✨レア！✨ ':'')+t;
+b.classList.remove('pop');void b.offsetWidth;b.classList.add('pop');
+};
 </script>
 </body>
 </html>
