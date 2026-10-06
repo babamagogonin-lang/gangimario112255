@@ -19,6 +19,18 @@ gangimario112255
 .gacha-box{min-height:110px;display:flex;align-items:center;justify-content:center;margin-top:18px;padding:18px;border-radius:28px;background:linear-gradient(135deg,rgba(255,179,211,.35),rgba(211,194,255,.35));font-size:18px}
 .gacha-box.pop{animation:pop .6s}
 @keyframes pop{0%{transform:scale(.6) rotate(-4deg);opacity:0}70%{transform:scale(1.06)}100%{transform:scale(1);opacity:1}}
+  .rec{text-align:center}
+.rec-box{min-height:120px;display:flex;flex-direction:column;align-items:center;justify-content:center;margin-top:18px;padding:18px;border-radius:28px;background:linear-gradient(135deg,rgba(255,179,211,.35),rgba(211,194,255,.35));font-size:17px}
+.rec-box b{font-size:21px;color:var(--pink)}
+.rec-box.pop{animation:recpop .6s}
+@keyframes recpop{0%{transform:scale(.6) rotate(-4deg);opacity:0}70%{transform:scale(1.06)}100%{transform:scale(1);opacity:1}}
+.sparkle{position:fixed;pointer-events:none;z-index:9;font-size:16px;animation:spk .9s ease-out forwards}
+@keyframes spk{from{opacity:1;transform:translate(0,0) scale(1)}to{opacity:0;transform:translate(var(--dx),var(--dy)) scale(.3) rotate(120deg)}}
+.fab{position:fixed;right:16px;width:46px;height:46px;border:0;border-radius:50%;background:var(--card);color:var(--text);font-size:20px;box-shadow:var(--shadow);cursor:pointer;z-index:6;animation:fabfloat 4s ease-in-out infinite}
+@keyframes fabfloat{50%{transform:translateY(-5px)}}
+#themeBtn{bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+#topBtn{bottom:calc(20px + env(safe-area-inset-bottom,0px));opacity:0;pointer-events:none;transition:opacity .4s}
+#topBtn.show{opacity:1;pointer-events:auto}
 <style>
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
 --bg1:#ffe3f0;--bg2:#e8dcff;--bg3:#d9f5ea;--card:rgba(255,255,255,.82);--text:#6b4a66;--pink:#ff8fbf;--purple:#a98be8;--mint:#7fd6b8;--shadow:0 10px 30px rgba(214,97,154,.2)}
@@ -91,6 +103,12 @@ footer{text-align:center;padding:30px 16px 50px;font-size:14px}
 <button class="btn" id="gBtn">🎰 ガチャをまわす</button>
 <div class="gacha-box" id="gBox">ここに今日の一言がでるよ✨</div>
 </div></section>
+<section id="rec"><h2>おすすめ作品ガチャ</h2>
+<div class="card rec">
+<p>ボタンを押すと、協会おすすめの作品がひとつ出てくるよ📚<br>ネタバレなしのひとこと紹介つき！</p>
+<button class="btn" id="recBtn">🎰 作品をひく</button>
+<div class="rec-box" id="recBox">ここにおすすめ作品がでるよ✨</div>
+</div></section>
 <main>
 <section id="about"><h2>協会とは</h2>
 <div class="card"><p>女の子同士の、やわらかくて尊い関係をみんなで愛でる、ふわふわの集まりです。恋でも友情でも、名前のつかない気持ちでも、ここでは全部まるごと「尊い」と呼びます。むずかしいルールはありません。紅茶でも片手に、ゆっくりしていってくださいね ☁️</p></div></section>
@@ -132,6 +150,8 @@ footer{text-align:center;padding:30px 16px 50px;font-size:14px}
 <small>リンク：discord.gg/DythYmXWHp</small>
 </div></section>
 <footer>© 百合大好き協会 ｜ みんなの「好き」で育つお花畑 🌸</footer>
+<button class="fab" id="themeBtn" aria-label="ライト・ダーク切り替え">🌙</button>
+<button class="fab" id="topBtn" aria-label="ページの一番上へ">🌷</button>
 <div class="toast" id="toast"></div>
 <script>
 var p=document.getElementById('petals'),e=['🌸','🌷','🤍','🫧','💮'];
@@ -168,6 +188,36 @@ do{t=a[Math.floor(Math.random()*a.length)]}while(t===gLast);
 gLast=t;b.textContent=(rare?'✨レア！✨ ':'')+t;
 b.classList.remove('pop');void b.offsetWidth;b.classList.add('pop');
 };
+  var recs=[
+['やがて君になる','「好き」がわからない子と、まっすぐな先輩の、ゆっくり進む学園ものだよ🌙'],
+['私の百合はお仕事です！','「百合を演じるお仕事」と、本当の気持ちのあいだで揺れるお話だよ☕'],
+['ささやくように恋を唄う','そっと育っていく気持ちを、やさしい空気で描く恋の物語だよ🎶'],
+['青い花','少女たちの揺れる気持ちをていねいに描いた、静かで美しい名作だよ💐'],
+['マリア様がみてる','学園の「姉妹」の絆を描く、百合の定番として愛される作品だよ🌹'],
+['ゆるゆり','ほのぼのした日常で、ふわっと広がる女の子たちの距離感が魅力だよ🍥'],
+['安達としまむら','ふたりの時間が、ゆっくり特別になっていく物語だよ🏀']
+],recLast=-1;
+document.getElementById('recBtn').onclick=function(){
+var i;do{i=Math.floor(Math.random()*recs.length)}while(recs.length>1&&i===recLast);
+recLast=i;var b=document.getElementById('recBox');
+b.innerHTML='<b>'+recs[i][0]+'</b><span>'+recs[i][1]+'</span>';
+b.classList.remove('pop');void b.offsetWidth;b.classList.add('pop');
+};
+var sp=['✨','🌸','⭐','💖','🫧'],lastS=0;
+function spark(x,y,n){for(var k=0;k<n;k++){var el=document.createElement('span');el.className='sparkle';
+el.textContent=sp[Math.floor(Math.random()*sp.length)];el.style.left=x+'px';el.style.top=y+'px';
+el.style.setProperty('--dx',(Math.random()*80-40)+'px');el.style.setProperty('--dy',(Math.random()*80-10)+'px');
+document.body.appendChild(el);setTimeout(function(t){t.remove()},900,el)}}
+document.addEventListener('pointerdown',function(ev){spark(ev.clientX,ev.clientY,6)});
+document.addEventListener('pointermove',function(ev){if(ev.pointerType!=='mouse')return;var now=Date.now();if(now-lastS<70)return;lastS=now;spark(ev.clientX,ev.clientY,1)});
+var th=document.getElementById('themeBtn');
+th.textContent=matchMedia('(prefers-color-scheme:dark)').matches?'☀️':'🌙';
+th.onclick=function(){var d=document.documentElement.getAttribute('data-theme');
+var dark=d?d==='dark':matchMedia('(prefers-color-scheme:dark)').matches;
+document.documentElement.setAttribute('data-theme',dark?'light':'dark');th.textContent=dark?'🌙':'☀️'};
+var tb=document.getElementById('topBtn');
+tb.onclick=function(){scrollTo({top:0,behavior:'smooth'})};
+addEventListener('scroll',function(){tb.classList.toggle('show',scrollY>300)});
 </script>
 </body>
 </html>
