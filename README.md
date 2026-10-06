@@ -49,7 +49,7 @@ li::marker{color:var(--pink);font-weight:700}
 footer{text-align:center;padding:30px 16px 50px;font-size:14px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
-  <link rel="icon" type="image/png" href="icon.png">
+  <link rel="icon" type="image/png" href="https://babamagogonin-lang.github.io/gangimario112255/icon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#ffb7d5">
 <meta name="description" content="女の子同士のやわらかくて尊い関係を愛でる、ふわふわの集まり。百合大好き協会へようこそ🌸">
@@ -60,7 +60,6 @@ footer{text-align:center;padding:30px 16px 50px;font-size:14px}
 <meta property="og:url" content="https://babamagogonin-lang.github.io/gangimario112255/">
 <meta property="og:image" content="https://babamagogonin-lang.github.io/gangimario112255/ogp.png">
 <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" type="image/png" href="icon.png?v=3">
 </head>
 <body>
 <div class="petals" id="petals"></div>
