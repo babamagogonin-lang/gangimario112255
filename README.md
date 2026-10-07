@@ -182,6 +182,7 @@ b.classList.remove('pop');void b.offsetWidth;b.classList.add('pop');
 ['マリア様がみてる','学園の「姉妹」の絆を描く、百合の定番として愛される作品だよ🌹'],
 ['ゆるゆり','ほのぼのした日常で、ふわっと広がる女の子たちの距離感が魅力だよ🍥'],
 ['安達としまむら','ふたりの時間が、ゆっくり特別になっていく物語だよ🏀']
+['君が死ぬまで恋をしたい','死と隣り合わせの過酷な日常の中で、少女たちがぶつかり合い、惹かれ合い、生きる意味を見出していく切なくも美しい物語だよ🗿'],
 ],recLast=-1;
 document.getElementById('recBtn').onclick=function(){
 var i;do{i=Math.floor(Math.random()*recs.length)}while(recs.length>1&&i===recLast);
@@ -204,19 +205,6 @@ document.documentElement.setAttribute('data-theme',dark?'light':'dark');th.textC
 var tb=document.getElementById('topBtn');
 tb.onclick=function(){scrollTo({top:0,behavior:'smooth'})};
 addEventListener('scroll',function(){tb.classList.toggle('show',scrollY>300)});
-  (function(){
-var r=document.querySelector('.rings');if(!r)return;
-function fe(L,w,a,fill,st){var p='M0 0C'+(L*.25)+' '+(-w)+','+(L*.8)+' '+(-w*.9)+','+L+' 0C'+(L*.8)+' '+(w*.5)+','+(L*.25)+' '+(w*.6)+',0 0Z';
-return '<path d="'+p+'" transform="translate(200 105) rotate('+a+')" fill="'+fill+'" stroke="'+st+'" stroke-width="1.2"/>'}
-var A=[-78,-60,-42,-24,-6,12],Ls=[105,135,160,165,150,115],wing='',i;
-for(i=5;i>=0;i--)wing+=fe(Ls[i],15,A[i],'url(#yuriWing)','#d9c9ff');
-for(i=5;i>=0;i--)wing+=fe(Ls[i]*.55,12,A[i],'#fff','#f0e6ff');
-var svg='<svg class="angel-wings" viewBox="0 0 400 220" aria-hidden="true"><defs><linearGradient id="yuriWing" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#ffd9ec"/></linearGradient><g id="yuriW">'+wing+'</g></defs><use href="#yuriW" class="wr"/><g class="wl"><use href="#yuriW" transform="translate(400 0) scale(-1 1)"/></g></svg>';
-var fs='';
-for(i=0;i<6;i++)fs+='<span class="feather" style="left:'+(20+Math.random()*160)+'px;--sx:'+(Math.random()*60-30)+'px;--r:'+(Math.random()*240-120)+'deg;animation-delay:'+(-Math.random()*8)+'s;animation-duration:'+(6+Math.random()*4)+'s"></span>';
-function hl(l,d,rot){return '<svg class="halo" viewBox="0 0 80 24" style="left:'+l+'px;animation-delay:'+d+'s" aria-hidden="true"><ellipse cx="40" cy="12" rx="32" ry="7" fill="none" stroke="#ffe08a" stroke-width="4.5" transform="rotate('+rot+' 40 12)"/><ellipse cx="40" cy="11" rx="32" ry="7" fill="none" stroke="#fff" stroke-width="1.6" transform="rotate('+rot+' 40 12)"/></svg>'}
-r.insertAdjacentHTML('beforebegin','<div class="angel back">'+svg+fs+'</div><div class="angel front">'+hl(30,0,-8)+hl(90,-2.5,8)+'</div>');
-})();
 </script>
 </body>
 </html>
